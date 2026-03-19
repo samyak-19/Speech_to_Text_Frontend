@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const API = axios.create({
-  baseURL: "https://speech-to-text-backend-r92y.onrender.com"
+  baseURL: "https://speech-to-text-backend-r92y.onrender.com/api"
 })
 
 API.interceptors.request.use((req) => {
