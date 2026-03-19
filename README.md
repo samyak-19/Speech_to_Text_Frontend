@@ -1,4 +1,4 @@
-# React + Vite
+<!-- # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -15,88 +15,84 @@ Note: This will impact Vite dev & build performances.
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project. -->
 
 
 
 
-# 🎤 Speech-to-Text Backend API
+# 🎤 Speech-to-Text Frontend
 
-A scalable backend service that converts audio to text using AI and stores transcriptions securely for authenticated users.
+A modern, AI-powered web application that allows users to upload or record audio and convert it into text in real-time.
+
+---
+
+## 🌐 Live Demo
+
+🚀 **Frontend:** https://your-frontend.vercel.app
+🔗 **Backend API:** https://your-backend.onrender.com
 
 ---
 
 ## 🚀 Overview
 
-This backend is built using the MERN stack and integrates a Speech-to-Text API to process audio files. It supports user authentication, file uploads, and transcription history management.
+This is the frontend of the Speech-to-Text application built using React and Tailwind CSS. It provides a clean, responsive, and user-friendly interface for interacting with an AI-powered backend.
 
 ---
 
 ## ✨ Features
 
-* 🎤 Audio file upload (MP3, WAV, WEBM)
-* 🤖 AI-powered speech-to-text conversion
-* 🔐 User authentication (JWT)
-* 🗂️ User-specific transcription storage
-* ⚡ RESTful API design
-* 🛡️ Error handling & validation
-* ☁️ Supports both Local MongoDB & MongoDB Atlas
+* 🎤 Record audio directly in browser
+* 📁 Upload audio files (MP3, WAV, WEBM)
+* ⚡ AI-powered transcription display
+* 🔐 User authentication (Login/Signup)
+* 🕒 View transcription history
+* 🎨 Modern UI with Tailwind CSS
+* 📱 Fully responsive design
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Node.js**
-* **Express.js**
-* **MongoDB + Mongoose**
-* **Deepgram API**
-* **JWT Authentication**
-* **bcrypt.js**
-* **Multer**
-* **dotenv**
+* **React (Vite)**
+* **Tailwind CSS**
+* **Axios**
+* **JavaScript (ES6+)**
 
 ---
 
 ## 🧠 System Architecture
 
-```id="arch001"
+```id="arch-final"
 Frontend (React)
         ↓
-Backend (Node.js + Express)
+Backend API (Node.js + Express)
         ↓
 Speech-to-Text API (Deepgram)
         ↓
-MongoDB (Local / Atlas)
+MongoDB (Atlas)
 ```
 
 ---
 
 ## 📁 Project Structure
 
-```id="struct001"
-server/
+```id="struct-final"
+client/
 │
-├── config/
-│   └── db.js
+├── src/
+│   ├── components/
+│   │   └── Recorder.jsx
+│   │
+│   ├── services/
+│   │   └── api.js
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 │
-├── models/
-│   ├── User.js
-│   └── Transcription.js
-│
-├── routes/
-│   ├── auth.js
-│   └── upload.js
-│
-├── services/
-│   └── deepgramService.js
-│
-├── middleware/
-│   └── auth.js
-│
-├── uploads/
-├── server.js
-├── .env
-└── package.json
+├── public/
+├── package.json
+└── vite.config.js
 ```
 
 ---
@@ -105,151 +101,113 @@ server/
 
 ### 1️⃣ Clone the repository
 
-```id="clone001"
-git clone https://github.com/samyak-19/Speech_to_Text_Backend.git
-cd speech-to-text-backend
+```id="clone-final"
+git clone https://github.com/your-username/speech-to-text-frontend.git
+cd speech-to-text-frontend
 ```
 
 ---
 
 ### 2️⃣ Install dependencies
 
-```id="install001"
+```id="install-final"
 npm install
 ```
 
 ---
 
-### 3️⃣ Configure Environment Variables
+### 3️⃣ Configure API URL
 
-Create a `.env` file:
+Update:
 
-```id="env001"
-PORT=5000
+```id="config-final"
+src/services/api.js
+```
 
-DB_TYPE=atlas
-
-MONGO_LOCAL=mongodb://localhost:27017/speechDB
-MONGO_ATLAS=your_mongodb_atlas_url
-
-DEEPGRAM_API_KEY=your_deepgram_api_key
-
-JWT_SECRET=your_secret_key
+```javascript id="code-final"
+baseURL: "https://your-backend-url.onrender.com/api"
 ```
 
 ---
 
-### 🔑 Environment Variables Explained
+### 4️⃣ Run the app
 
-| Variable         | Description                   |
-| ---------------- | ----------------------------- |
-| PORT             | Server port                   |
-| DB_TYPE          | `local` or `atlas`            |
-| MONGO_LOCAL      | Local MongoDB URL             |
-| MONGO_ATLAS      | Cloud MongoDB URL             |
-| DEEPGRAM_API_KEY | API key for transcription     |
-| JWT_SECRET       | Secret key for authentication |
-
----
-
-### 4️⃣ Run the server
-
-```id="run001"
+```id="run-final"
 npm run dev
 ```
 
-Server runs on:
+App runs on:
 
-```id="url001"
-http://localhost:5000
+```id="url-final"
+http://localhost:5173
 ```
 
 ---
 
-## 📡 API Endpoints
+## 📡 API Integration
 
-### 🔐 Authentication
+| Feature      | Endpoint              |
+| ------------ | --------------------- |
+| Signup       | `/api/auth/signup`    |
+| Login        | `/api/auth/login`     |
+| Upload Audio | `/api/upload-audio`   |
+| Get History  | `/api/transcriptions` |
 
-#### Signup
+---
 
-```id="signup001"
-POST /api/auth/signup
-```
+## 🔄 Data Flow
 
-#### Login
-
-```id="login001"
-POST /api/auth/login
+```id="flow-final"
+User Action (Upload/Record)
+        ↓
+React State Update
+        ↓
+API Call (Axios)
+        ↓
+Backend Processing
+        ↓
+Response Received
+        ↓
+UI Updated with Transcription
 ```
 
 ---
 
-### 🎤 Upload Audio
+## 🧩 Key Components
 
-```id="upload001"
-POST /api/upload-audio
-```
-
-Headers:
-
-```id="headers001"
-Authorization: <JWT_TOKEN>
-```
-
-Body:
-
-```id="body001"
-form-data:
-audio: file
-```
+| Component       | Description                      |
+| --------------- | -------------------------------- |
+| App.jsx         | Main app logic & UI              |
+| Recorder.jsx    | Handles audio recording          |
+| api.js          | API communication layer          |
+| History Section | Displays previous transcriptions |
 
 ---
 
-### 📄 Get Transcriptions
+## ⚡ Performance & UX Highlights
 
-```id="history001"
-GET /api/transcriptions
-```
-
-Headers:
-
-```id="headers002"
-Authorization: <JWT_TOKEN>
-```
+* Fast rendering using Vite
+* Smooth UI interactions with Tailwind
+* Loading indicators during API calls
+* Clean and minimal design
+* Optimized API requests
 
 ---
 
-## 📦 Sample API Responses
+## 🛡️ Error Handling
 
-### ✅ Success
-
-```json id="success001"
-{
-  "success": true,
-  "transcription": "Hello everyone, welcome to the speech-to-text app"
-}
-```
+* Displays user-friendly error messages
+* Handles network failures gracefully
+* Validates file type and size
+* Prevents invalid API requests
 
 ---
 
-### ❌ Error
+## 📱 Responsive Design
 
-```json id="error001"
-{
-  "success": false,
-  "message": "Only audio files are allowed"
-}
-```
-
----
-
-## 🔐 Authentication Flow
-
-1. User logs in → receives JWT token
-2. Token stored in frontend
-3. Token sent in API headers
-4. Backend verifies token
-5. Access granted to protected routes
+* Mobile-friendly layout
+* Works across all screen sizes
+* Flexible UI using Tailwind CSS
 
 ---
 
@@ -257,59 +215,50 @@ Authorization: <JWT_TOKEN>
 
 * Only audio files allowed
 * Maximum file size: 5MB
-* Invalid inputs return proper error messages
-
----
-
-## 🔐 Security Practices
-
-* Passwords hashed using bcrypt
-* JWT-based authentication
-* Protected API routes
-* Environment variables secured
-* File validation implemented
+* Proper error messages for invalid inputs
 
 ---
 
 ## ⚠️ Known Limitations
 
-* Large files (>10MB) not supported
-* No real-time streaming
-* Files stored locally (not cloud)
+* Requires internet connection
 * No audio playback feature
+* No offline support
 
 ---
 
-## 🚀 Deployment
+## 🚀 Future Improvements
 
-Backend can be deployed on:
-
-* Render
-* Railway
-* Vercel
-
-⚠️ Use MongoDB Atlas for production
+* Drag & drop upload
+* Audio preview before upload
+* Dark mode support
+* Multi-language UI
+* PWA support
 
 ---
 
-## 🧪 Testing
+## 🧠 Learning Outcomes
 
-Use tools like Postman:
-
-* Test authentication routes
-* Upload audio files
-* Verify transcription output
-* Check database records
+* Built full-stack MERN application
+* Integrated AI APIs into frontend
+* Implemented authentication flow
+* Managed API communication using Axios
+* Deployed frontend using Vercel
 
 ---
 
-## 🚀 Future Scope
+## 📌 Challenges Faced
 
-* Real-time transcription (WebSockets)
-* Cloud storage (AWS S3)
-* Multi-language support
-* Advanced search & filters
-* Analytics dashboard
+* Handling file uploads in frontend
+* Managing CORS issues
+* Integrating API with authentication
+* Ensuring smooth UX during processing
+
+### ✅ Solutions
+
+* Implemented proper API structure
+* Added loading states and error handling
+* Optimized request flow
 
 ---
 
@@ -317,10 +266,10 @@ Use tools like Postman:
 
 This project demonstrates:
 
-* Full-stack development skills
-* Integration of AI APIs
+* Real-world full-stack development
+* AI integration in web apps
 * Secure authentication systems
-* Scalable backend architecture
+* Scalable frontend architecture
 
 ---
 
@@ -332,4 +281,5 @@ Developed as part of an internship project.
 
 ## ⭐ Final Notes
 
-This project is designed to simulate a real-world SaaS backend with authentication, AI integration, and scalable architecture.
+This project simulates a real-world SaaS application with modern UI, AI integration, and scalable architecture.
+
