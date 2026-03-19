@@ -214,7 +214,7 @@ UI Updated with Transcription
 ## ⚠️ Validation Rules
 
 * Only audio files allowed
-* Maximum file size: 5MB
+* Maximum file size: 10MB
 * Proper error messages for invalid inputs
 
 ---
