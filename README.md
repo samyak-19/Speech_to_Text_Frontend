@@ -29,7 +29,7 @@ A modern, AI-powered web application that allows users to upload or record audio
 ## 🌐 Live Demo
 
 🚀 **Frontend:** https://speech-to-text-frontend-virid.vercel.app/
-🔗 **Backend API:** https://your-backend.onrender.com
+🔗 **Backend API:** https://speech-to-text-backend-r92y.onrender.com/
 
 ---
 
