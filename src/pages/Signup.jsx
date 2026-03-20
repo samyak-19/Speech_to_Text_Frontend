@@ -43,7 +43,7 @@ function Signup({setPage}) {
       setError("")
 
       await API.post(
-        "api/auth/signup",
+        "auth/signup",
         form
       )
 
