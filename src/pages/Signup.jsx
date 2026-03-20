@@ -43,7 +43,7 @@ function Signup({setPage}) {
       setError("")
 
       await axios.post(
-        "api/signup",
+        "api/auth/signup",
         form
       )
 
