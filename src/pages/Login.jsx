@@ -37,7 +37,7 @@ function Login({setPage}) {
       setLoading(true)
       setError("")
 
-      const res = await axios.post(
+      const res = await API.post(
         "/auth/login",
         form
       )
