@@ -1,5 +1,5 @@
 import { useState } from "react"
-import axios from "axios"
+// import axios from "axios"
 import API from "../services/api"
 import { Eye, EyeOff, Mail, Lock } from "lucide-react"
 
@@ -38,7 +38,7 @@ function Login({setPage}) {
       setError("")
 
       const res = await axios.post(
-        "api/auth/login",
+        "/auth/login",
         form
       )
 
