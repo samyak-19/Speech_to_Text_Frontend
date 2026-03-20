@@ -28,7 +28,7 @@ A modern, AI-powered web application that allows users to upload or record audio
 
 ## 🌐 Live Demo
 
-🚀 **Frontend:** https://your-frontend.vercel.app
+🚀 **Frontend:** https://speech-to-text-frontend-virid.vercel.app/
 🔗 **Backend API:** https://your-backend.onrender.com
 
 ---
@@ -102,7 +102,7 @@ client/
 ### 1️⃣ Clone the repository
 
 ```id="clone-final"
-git clone https://github.com/your-username/speech-to-text-frontend.git
+git clone https://github.com/samyak-19/Speech_to_Text_Frontend.git
 cd speech-to-text-frontend
 ```
 
