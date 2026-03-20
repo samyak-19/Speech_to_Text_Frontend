@@ -29,3 +29,5 @@ export const getTranscriptions = () => {
 export const verifyUser = () => {
   return API.get("/auth/me")
 }
+
+export default API
