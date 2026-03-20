@@ -1,6 +1,6 @@
 import { useState } from "react"
 // import axios from "axios"
-import API from "../services/api.js"
+import api from "../services/api.js"
 import { Eye, EyeOff, Mail, Lock, User } from "lucide-react"
 
 function Signup({setPage}) {
