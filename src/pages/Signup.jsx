@@ -14,6 +14,7 @@ function Signup({setPage}) {
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -41,20 +42,31 @@ function Signup({setPage}) {
     try {
       setLoading(true)
       setError("")
+      setSuccess("")
 
       await API.post(
         "/auth/signup",
         form
       )
+      
+      setSuccess("Registration successful! Please login.")
+      
+      setForm({
+        name: "",
+        email: "",
+        password: ""
+      })
 
-      alert("Signup successful! Please login.")
+      setTimeout(() => {
+        setPage("login")
+      }, 2000)
 
     } catch (err) {   // ✅ IMPORTANT: err NOT error
       setError(err.response?.data?.message || "Signup failed")
     } finally {
       setLoading(false)
     }
-  }
+  } 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-200 to-blue-300">
