@@ -59,7 +59,7 @@ function Signup({setPage}) {
 
       setTimeout(() => {
         setPage("login")
-      }, 2000)
+      }, 8000)
 
     } catch (err) {   // ✅ IMPORTANT: err NOT error
       setError(err.response?.data?.message || "Signup failed")
@@ -81,10 +81,16 @@ function Signup({setPage}) {
           Sign up to get started
         </p>
 
-        {/* ✅ SAFE ERROR DISPLAY */}
+       
         {error && (
           <div className="bg-red-100 text-red-600 p-2 rounded mb-4 text-sm">
             {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="bg-green-100 text-green-600 p-2 rounded mb-4 text-sm">
+            {success}
           </div>
         )}
 
