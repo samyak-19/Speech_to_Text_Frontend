@@ -28,7 +28,7 @@ A modern, AI-powered web application that allows users to upload or record audio
 
 ## 🌐 Live Demo
 
-🚀 **Frontend:** hhttps://speech-to-text-frontend-v9fx-begi84ai5.vercel.app/
+🚀 **Frontend:** https://speech-to-text-frontend-v9fx.vercel.app/
 🔗 **Backend API:** https://speech-to-text-backend-r92y.onrender.com/
 
 ---
